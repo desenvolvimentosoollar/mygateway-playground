@@ -1,0 +1,246 @@
+﻿@page
+@using MyGateway.Playground.Web.Pages
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- INFORME ABAIXO A SUA API_KEY -->
+    <meta name="_api_key" content="" />
+    <title>MyGateway - Checkout</title>
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="form-section">
+            <header>
+                <h1>Finalizar Compra</h1>
+            </header>
+
+            <form id="checkout-form">
+                <section class="customer-info">
+                    <h2>Informações do Cliente</h2>
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text"
+                               id="name"
+                               name="name"
+                               placeholder="Seu Nome Completo"
+                               required />
+                    </div>
+                    <div class="form-group">
+                        <label for="document">CPF/CNPJ</label>
+                        <input type="text"
+                               id="document"
+                               name="document"
+                               placeholder="Número do documento"
+                               required />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email"
+                                   id="email"
+                                   name="email"
+                                   placeholder="seuemail@exemplo.com"
+                                   required />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel"
+                                   id="phone"
+                                   name="phone"
+                                   placeholder="(00) 9 0000-0000"
+                                   required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zipcode">CEP</label>
+                            <input type="text"
+                                   id="zipcode"
+                                   name="zipcode"
+                                   placeholder="00000-000"
+                                   required />
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Cidade</label>
+                            <input type="text" id="city" name="city" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="state">Estado</label>
+                            <input type="text"
+                                   id="state"
+                                   name="state"
+                                   required
+                                   placeholder="UF" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="neighborhood">Bairro</label>
+                            <input type="text"
+                                   id="neighborhood"
+                                   name="neighborhood"
+                                   required />
+                        </div>
+                        <div class="form-group">
+                            <label for="street">Logradouro</label>
+                            <input type="text" id="street" name="street" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Número</label>
+                            <input type="text" id="number" name="number" required />
+                        </div>
+                    </div>
+                </section>
+
+                <section class="payment-info">
+                    <h2>Pagamento</h2>
+                    <div class="form-group">
+                        <label for="card-number">Número do Cartão</label>
+                        <input type="text"
+                               id="card-number"
+                               name="card-number"
+                               placeholder="0000 0000 0000 0000"
+                               required />
+                    </div>
+                    <div class="form-group">
+                        <label for="card-name">Nome no Cartão</label>
+                        <input type="text"
+                               id="card-name"
+                               name="card-name"
+                               placeholder="Como aparece no cartão"
+                               required />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Validade (MM/AA)</label>
+                            <input type="text"
+                                   id="card-expiry"
+                                   name="card-expiry"
+                                   placeholder="MM/AA"
+                                   required />
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvv">CVV</label>
+                            <input type="text"
+                                   id="card-cvv"
+                                   name="card-cvv"
+                                   placeholder="123"
+                                   required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="installments">N° de Parcelas</label>
+                        <select id="installments" name="installments">
+                            <option value="1">Crédito à Vista</option>
+                            <option value="2">Crédito 2x</option>
+                            <option value="3">Crédito 3x</option>
+                            <option value="4">Crédito 4x</option>
+                            <option value="5">Crédito 5x</option>
+                            <option value="6">Crédito 6x</option>
+                            <option value="7">Crédito 7x</option>
+                            <option value="8">Crédito 8x</option>
+                            <option value="9">Crédito 9x</option>
+                            <option value="10">Crédito 10x</option>
+                            <option value="11">Crédito 11x</option>
+                            <option value="12">Crédito 12x</option>
+                            <option value="13">Crédito 13x</option>
+                            <option value="14">Crédito 14x</option>
+                            <option value="15">Crédito 15x</option>
+                            <option value="16">Crédito 16x</option>
+                            <option value="17">Crédito 17x</option>
+                            <option value="18">Crédito 18x</option>
+                        </select>
+                    </div>
+                </section>
+
+                <div hidden>
+                    <input type="text" id="ipAddress" name="ipAddress" />
+                    <input type="text" id="jwt" name="jwt" />
+                    <input type="text"
+                           id="httpBrowserColorDepth"
+                           name="httpBrowserColorDepth" />
+                    <input type="text"
+                           id="httpBrowserJavaEnabled"
+                           name="httpBrowserJavaEnabled" />
+                    <input type="text"
+                           id="httpBrowserJavaScriptEnabled"
+                           name="httpBrowserJavaScriptEnabled" />
+                    <input type="text"
+                           id="httpBrowserLanguage"
+                           name="httpBrowserLanguage" />
+                    <input type="text"
+                           id="httpBrowserScreenHeight"
+                           name="httpBrowserScreenHeight" />
+                    <input type="text"
+                           id="httpBrowserScreenWidth"
+                           name="httpBrowserScreenWidth" />
+                    <input type="text"
+                           id="httpBrowserTimeDifference"
+                           name="httpBrowserTimeDifference" />
+                    <input type="text"
+                           id="httpAcceptBrowserValue"
+                           name="httpAcceptBrowserValue" />
+                    <input type="text"
+                           id="httpAcceptContent"
+                           name="httpAcceptContent" />
+                    <input type="text"
+                           id="userAgentBrowserValue"
+                           name="userAgentBrowserValue" />
+                    <input type="text" id="ccnum" name="ccnum" />
+                    <input type="text" id="code3DS" name="code3DS" />
+                    <input type="text" id="payment_type" name="type" value="Credit" />
+                    <input type="text" id="payment_card_number" name="card_number" />
+                    <input type="text" name="referer" id="referer" />
+                    <input type="text" name="user_agent" id="user_agent" />
+                    <input type="text" name="latitude" id="latitude" />
+                    <input type="text" name="longitude" id="longitude" />
+                    <input type="text" name="accuracy" id="accuracy" />
+                    <input type="text" name="timestamp" id="timestamp" />
+                    <input type="text" name="paymentId" id="paymentId" />
+                </div>
+
+                <button type="submit" class="submit-btn">Finalizar Compra</button>
+            </form>
+        </div>
+
+        <div class="summary-section">
+            <h2>Resumo do Pedido</h2>
+            <div class="order-items">
+                <div class="item">
+                    <span class="item-name">Produto Exemplo 1 (x1)</span>
+                    <span class="item-price">R$ 1,00</span>
+                </div>
+            </div>
+            <div class="order-total">
+                <div class="total-line">
+                    <span>Subtotal</span>
+                    <span>R$ 1,00</span>
+                </div>
+                <div class="total-line">
+                    <span>Frete</span>
+                    <span>R$ 0,00</span>
+                </div>
+                <div class="total-line total">
+                    <span>Total</span>
+                    <span id="total-price">R$ 1,00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@@mygateway/mygateway-three-ds-sdk-frontend@latest/MyGateway3DS.min.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>
+

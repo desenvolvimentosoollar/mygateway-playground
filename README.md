@@ -1,6 +1,6 @@
 # MyGateway Playground
 
-Bem-vindo ao MyGateway Playground\! Este projeto foi desenhado para demonstrar a integração entre uma aplicação frontend (Web) e uma API backend, ambas desenvolvidas em C\#.
+Bem-vindo ao MyGateway Playground\! Este projeto foi desenhado para demonstrar a integração entre uma aplicação frontend (Web) com o SDK de 3DS MyGateway e uma API backend com comunicação com a API de pagamentos MyGateway. Em caso de dúvidas sobre o funcionamento dos nossos produtos acesse [nossa documentação](https://app.mygateway.com.br/documentacao/sintetica).
 
 ## Visão Geral do Projeto
 
@@ -11,7 +11,7 @@ O projeto é composto por duas aplicações distintas:
 
 ## Pré-requisitos
 
-  * [.NET SDK](https://dotnet.microsoft.com/download) instalado.
+  * [.NET 8.0 SDK](https://dotnet.microsoft.com/download) instalado.
   * Um ambiente de desenvolvimento C\#, como o Visual Studio ou Visual Studio Code.
 
 ## 🚀 Como Começar
